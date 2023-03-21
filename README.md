@@ -1,0 +1,1 @@
+Random scripts for GW2 guilds Crimson Blackout \[CBo\] and Wovles of War \[PACK\]
