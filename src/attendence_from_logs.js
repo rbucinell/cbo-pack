@@ -1,16 +1,11 @@
 import dotenv from 'dotenv';
 dotenv.config();
 import { readdir, readFile, stat } from 'fs/promises';
-import { exec, execSync } from 'child_process';
+import { execSync } from 'child_process';
 import path from 'path'
-import { log } from 'console';
 import { rmSync } from 'fs';
 
-const parser_config_path = `S:\\projects\\guildwars2\\GW2EI\\Settings\\myconfig.conf`
-const parser_path = `S:\\projects\\guildwars2\\GW2-Elite-Insights-Parser\\GW2EI.bin\\Debug\\GuildWars2EliteInsights.exe`;
 const log_dir = `${process.env.USERPROFILE}\\Documents\\Guild Wars 2\\addons\\arcdps\\arcdps.cbtlogs\\WvW\\`;
-
-
 
 const todaysZEVTC = async ( executeDate ) => {
     let date = new Date(executeDate);
@@ -26,7 +21,7 @@ const zevtcToJSON = async ( zevtcPath ) => {
         await stat(jsonPath);
     } catch( err )
     {
-        execSync( `${parser_path} -c "${parser_config_path}" "${zevtcPath}"`);
+        execSync( `${process.env.GW2_ELITE_INSIGHTS_PARSER_EXE} -c "${process.env.GW2_ELITE_INSIGHTS_PARSER_CONFIG}" "${zevtcPath}"`);
         rmSync( zevtcPath.replace('.zevtc', '.log'));
     }
     return jsonPath;
