@@ -5,7 +5,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "attendence" : "node src/attendence/attendence.js"
+    "attendence": "node src/attendence/attendence.js"
   },
   "keywords": [],
   "author": "",
@@ -14,12 +14,15 @@
     "axios": "^1.4.0",
     "dotenv": "^16.0.3",
     "extract-zip": "^2.0.1",
+    "googleapis": "^118.0.0",
     "prompts": "^2.4.2",
     "update-dotenv": "^1.1.1"
   },
   "pkg": {
     "scripts": "src/attendence/attendence.js",
-    "options": ["experimental-modules"],
+    "options": [
+      "experimental-modules"
+    ],
     "targets": [
       "win"
     ],
